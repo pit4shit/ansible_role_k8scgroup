@@ -1,0 +1,31 @@
+---
+- name: "Configure docker for systemd cgroups"
+  template:
+    src: templates/daemon.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  become: true
+
+
+- name: "mkdir -p /etc/systemd/system/docker.service.d"
+  file:
+    path: /etc/systemd/system/docker.service.d
+    owner: root
+    group: root
+    mode: u+rw,g+r,o+r
+    state: directory
+  become: true
+
+- name: "reload daemon"
+  systemd:
+    daemon_reload: yes
+  become: true
+
+- name: "restart docker"
+  systemd:
+    name: docker
+    state: restarted
+  become: true
+ 
