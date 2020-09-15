@@ -8,14 +8,6 @@
     mode: u=rw,g=r,o=r
   become: true
 
-- name: "Create user dockuser for userns-remap"
-  user:
-    name: "dockusr"
-    shell: "/bin/false"
-    system: no
-    createhome: no
-    state: present
-
 - name: "mkdir -p /etc/systemd/system/docker.service.d"
   file:
     path: /etc/systemd/system/docker.service.d
