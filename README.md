@@ -1,7 +1,8 @@
 Role Name
 =========
 
-This sole sets dockers cgroupengine to systemd.
+This sole sets dockers cgroupengine to systemd and enabled userns-remap.
+Remapping is done to user dockusr. User dockusr is createt without shell and password.
 
 Requirements
 ------------
@@ -32,7 +33,3 @@ License
 
 BSD
 
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).

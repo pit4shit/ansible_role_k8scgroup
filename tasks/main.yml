@@ -12,7 +12,7 @@
   user:
     name: "dockusr"
     shell: "/bin/false"
-    system: yes
+    system: no
     createhome: no
     state: present
 
