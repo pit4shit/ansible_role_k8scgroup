@@ -1,2 +1,3 @@
 ---
 # defaults file for pit4shit.k8scgroup
+no_proxy: '127.0.0.1'

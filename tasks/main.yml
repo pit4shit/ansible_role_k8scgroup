@@ -17,6 +17,16 @@
     state: directory
   become: true
 
+- name: "Configure docker to use a proxy"
+  template:
+    src: templates/proxies.conf
+    dest: /etc/systemd/system/docker.service.d/proxies.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  become: true
+  when: http_proxy is defined
+
 - name: "reload daemon"
   systemd:
     daemon_reload: yes
@@ -27,4 +37,3 @@
     name: docker
     state: restarted
   become: true
- 
